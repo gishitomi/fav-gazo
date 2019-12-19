@@ -7,18 +7,8 @@ session_start();
 $db['host'] = getenv('hostname');  // DBサーバのURL
 $db['user'] = getenv('username');  // ユーザー名
 $db['pass'] = getenv('password');  // ユーザー名のパスワード
-$db['dbname'] = "fav-gazo";  // データベース名
-// $db['dbname'] = getenv('dbname');  // データベース名
+$db['dbname'] = getenv('dbname');  // データベース名
 
-// $db['host'] = "heroku_7c1d8e027c03bf7";  // DBサーバのURL
-// $db['user'] = "b1ba47a5f731ea";  // ユーザー名
-// $db['pass'] = "fc2ba8de";  // ユーザー名のパスワード
-// $db['dbname'] = "heroku_7c1d8e027c03bf7";  // データベース名
-
-// $db['host'] = "localhost";  // DBサーバのURL
-// $db['user'] = "root";  // ユーザー名
-// $db['pass'] = "";  // ユーザー名のパスワード
-// $db['dbname'] = "loginManagement";  // データベース名
 
 
 // エラーメッセージ、登録完了メッセージの初期化
@@ -42,18 +32,21 @@ if (isset($_POST["signUp"])) {
         $password = $_POST["password"];
 
         // 2. ユーザIDとパスワードが入力されていたら認証する
-        $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbname']);
+        $dsn = sprintf('mysql:host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbname']);
         // $dsn = sprintf('mysql:charset=utf8', $db['host'], $db['dbname'], $db['host'], $db['dbname']);
 
         // 3. エラー処理
         try {
+
+            // var_dump($db['user']);die;
             $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
-            $stmt = $pdo->prepare("INSERT INTO userData(name, password) VALUES (?, ?)");
 
+            $stmt = $pdo->prepare("INSERT INTO userData(name, password) VALUES (?, ?)");
+            
             $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT)));  // パスワードのハッシュ化を行う（今回は文字列のみなのでbindValue(変数の内容が変わらない)を使用せず、直接excuteに渡しても問題ない）
             $userid = $pdo->lastinsertid();  // 登録した(DB側でauto_incrementした)IDを$useridに入れる
-
+            
             $signUpMessage = '登録が完了しました。あなたのユーザーネームは ' . $username . ' です。パスワードは ' . $password . ' です。';  // ログイン時に使用するIDとパスワード
         } catch (PDOException $e) {
             $errorMessage = 'データベースエラー';
