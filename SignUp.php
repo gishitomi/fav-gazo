@@ -33,8 +33,8 @@ if (isset($_POST["signUp"])) {
         $password = $_POST["password"];
 
         // 2. ユーザIDとパスワードが入力されていたら認証する
-        // $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbname']);
-        $dsn = sprintf('mysql:charset=utf8', $db['host'], $db['dbname'], $db['host'], $db['dbname']);
+        $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbname']);
+        // $dsn = sprintf('mysql:charset=utf8' $db['host'], $db['dbname']);
 
         // 3. エラー処理
         try {
