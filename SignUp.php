@@ -37,10 +37,8 @@ if (isset($_POST["signUp"])) {
 
         // 3. エラー処理
         try {
-            var_dump(123);
             // var_dump($db['user']);die;
             $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-            var_dump($pdo);die;
 
             $stmt = $pdo->prepare("INSERT INTO userData(name, password) VALUES (?, ?)");
             
