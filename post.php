@@ -14,8 +14,13 @@ try {
     $pass = getenv('password');
     $hostname = getenv('hostname');
     $dbname = getenv('dbname');
+    // $user = "b1ba47a5f731ea";
+    // $pass = "fc2ba8de";
+    // $host = "us-cdbr-iron-east-05.cleardb.net";
+    // $dbname = "heroku_7c1d8e027c03bf7";
     // $pdo = new PDO("mysql:host=127.0.0.1;dbname=mediatest;charset=utf8", $user, $pass);
-    $pdo = new PDO($user, $pass, $hostname, $dbname);
+    $dsn = "mysql:host=$host;dbname=$dbname;";
+    $pdo = new PDO($dsn, $user, $pass);
     //ファイルアップロードがあったとき
     if (isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error']) && $_FILES["upfile"]["name"] !== "") {
         //エラーチェック
