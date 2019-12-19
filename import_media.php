@@ -14,7 +14,7 @@ try {
 
     $user = getenv('username');
     $pass = getenv('password');
-    $hostname = getenv('hostname');
+    $host = getenv('hostname');
     $dbname = getenv('dbname');
 
     $dsn = "mysql:host=$host;dbname=$dbname;";
