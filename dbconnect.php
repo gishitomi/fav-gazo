@@ -1,5 +1,4 @@
 <?php
-
 //DBに接続
 // MySQLのテンプレ
 // $host = "localhost"; //MySQLがインストールされてるコンピュータ
@@ -13,6 +12,12 @@ $dbname = getenv('dbname'); //使用するDB
 $charset = "utf8"; //文字コード
 $user = getenv('username'); //MySQLにログインするユーザー名
 $password = getenv('password'); //ユーザーのパスワード
+
+$user = "b1ba47a5f731ea";
+$pass = "fc2ba8de";
+$host = "us-cdbr-iron-east-05.cleardb.net";
+$dbname = "heroku_7c1d8e027c03bf7";
+
 $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, //SQLでエラーが表示された場合、画面にエラーが出力される
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, //DBから取得したデータを連想配列の形式で取得する

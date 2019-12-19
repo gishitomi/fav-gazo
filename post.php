@@ -15,7 +15,10 @@ try {
     $hostname = getenv('hostname');
     $dbname = getenv('dbname');
 
-
+    $user = "b1ba47a5f731ea";
+    $pass = "fc2ba8de";
+    $host = "us-cdbr-iron-east-05.cleardb.net";
+    $dbname = "heroku_7c1d8e027c03bf7";
 
     $dsn = "mysql:host=$host;dbname=$dbname;";
     $pdo = new PDO($dsn, $user, $pass);
