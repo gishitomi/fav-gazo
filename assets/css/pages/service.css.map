@@ -1,0 +1,1 @@
+{"version":3,"sources":["service.css"],"names":[],"mappings":"AAAA;EAAoB,UAAU;EAAE,cAAc,EAAA;;AAE9C;EAAuB,eAAe;EAAE,cAAc;EAAE,kBAAkB,EAAA;;AAE1E;EAAsB,eAAe,EAAA","file":"service.css","sourcesContent":["#service .textbox { width: 80%; margin: 0 auto; }\n\n#service .textbox h1 { font-size: 20px; margin: 0 auto; text-align: center; }\n\n#service .textbox p { font-size: 15px; }\n"]}

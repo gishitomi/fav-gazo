@@ -1,0 +1,13 @@
+#service .textbox {
+  width: 80%;
+  margin: 0 auto; }
+
+#service .textbox h1 {
+  font-size: 20px;
+  margin: 0 auto;
+  text-align: center; }
+
+#service .textbox p {
+  font-size: 15px; }
+
+/*# sourceMappingURL=service.css.map */
