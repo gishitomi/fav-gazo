@@ -1,0 +1,42 @@
+header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+    width: 100%;
+    background-color: black;
+    h1 {
+        font-size: 40px;
+        font-weight: 900;
+        font-family: cursive;
+        color: white;
+    }
+    p {
+        margin-top: 30px;
+        font-size: 20px;
+        color: white;
+        font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+    }
+    .logo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .header-right {
+        left: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        a {
+            margin-top: 20px;
+            color: white;
+        }
+        a:hover {
+            color: red;
+        }
+    }
+}

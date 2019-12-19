@@ -1,0 +1,59 @@
+#Login {
+    height: 100vh;
+    main {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        h1 {
+            color: white;
+            font-size: 50px;
+            font-weight: 800;
+            font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+        }
+        p {
+            color: white;
+            font-size: 30px;
+            font-weight: 600;
+            font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+        }
+        .main-box {
+            // display: flex;
+            // justify-content: space-around;
+            // width: 70%;
+            margin-bottom: 50px;
+        }
+        fieldset {
+            border: 2px solid white;
+            padding: 30px 60px;
+            background-color: rgba(187, 187, 187, 0.5);
+        }
+        legend {
+            text-align: center;
+            color: white;
+            font-size: 25px;
+            font-weight: 600;
+        }
+        label {
+            color: white;
+            font-size: 20px;
+        }
+        #login,
+        #submit {
+            padding: 5px 60px;
+            display: block;
+            margin: 0 auto;
+            background-color: black;
+            cursor: pointer;
+        }
+        #userid,
+        #password {
+            padding: 4px 0;
+            padding-right: 20px;
+            padding-left: 5px;
+            margin-top: 20px;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+@charset "UTF-8";
+.container {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+}
+
+.container-wrapper {
+    background-size: cover;
+    background-position: center;
+    height: 80%;
+    width: 100%;
+}
+
+.gazo1 {
+    background-image: url(../../assets/img/grand-central-station-690180_1920.jpg);
+}
+
+.gazo2 {
+    background-image: url(../../assets/img/grand-central-station-690180_1920.jpg);
+}
+
+.gazo3 {
+    // background-image: url(../../assets/img/grand-central-station-690180_1920.jpg);
+    background-color: #fff;
+}
+
+.gazo4 {
+    background-image: url(../../assets/img/station-3878163_1920.jpg);
+    background-position: center;
+    // background-color: #fff;
+}

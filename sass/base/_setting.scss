@@ -1,0 +1,9 @@
+// webサイトの設定として使いたいファイル
+@charset "UTF-8";
+// 色の設定-------------------------------------
+$base-color: #fff;
+$main-color: #ddd;
+$accent-color: #f00;
+// フォントの設定-------------------------------
+// ブレイクポイントの設定-----------------------
+$breakpoints: ( sp: "only screen and (max-width: 767px)", tab: "only screen and (max-width: 768px)", pc: "only screen and (max-width: 1152px)", );
