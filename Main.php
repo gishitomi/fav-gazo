@@ -15,7 +15,8 @@ try {
     $host = getenv('hostname');
     $dbname = getenv('dbname');
     // $pdo = new PDO("mysql:host=127.0.0.1;dbname=mediatest;charset=utf8", $user, $pass);
-    $pdo = new PDO($host, $dbname, $user, $pass);
+    $pdo = new PDO($host, $dbname, $user, $pass
+    , array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
     //ファイルアップロードがあったとき
     if (isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error']) && $_FILES["upfile"]["name"] !== "") {
