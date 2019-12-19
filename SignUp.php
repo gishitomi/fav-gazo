@@ -1,8 +1,5 @@
 <?php
-require 'password.php';
-?>
 
-<?php
 require 'password.php';   // password_hash()はphp 5.5.0以降の関数のため、バージョンが古くて使えない場合に使用
 // セッション開始
 session_start();
@@ -10,7 +7,19 @@ session_start();
 $db['host'] = getenv('hostname');  // DBサーバのURL
 $db['user'] = getenv('username');  // ユーザー名
 $db['pass'] = getenv('password');  // ユーザー名のパスワード
-$db['dbname'] = getenv('dbname');  // データベース名
+$db['dbname'] = "fav-gazo";  // データベース名
+// $db['dbname'] = getenv('dbname');  // データベース名
+
+// $db['host'] = "heroku_7c1d8e027c03bf7";  // DBサーバのURL
+// $db['user'] = "b1ba47a5f731ea";  // ユーザー名
+// $db['pass'] = "fc2ba8de";  // ユーザー名のパスワード
+// $db['dbname'] = "heroku_7c1d8e027c03bf7";  // データベース名
+
+// $db['host'] = "localhost";  // DBサーバのURL
+// $db['user'] = "root";  // ユーザー名
+// $db['pass'] = "";  // ユーザー名のパスワード
+// $db['dbname'] = "loginManagement";  // データベース名
+
 
 // エラーメッセージ、登録完了メッセージの初期化
 $errorMessage = "";
@@ -34,14 +43,11 @@ if (isset($_POST["signUp"])) {
 
         // 2. ユーザIDとパスワードが入力されていたら認証する
         $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbname']);
-        // $dsn = sprintf('mysql:charset=utf8' $db['host'], $db['dbname']);
+        // $dsn = sprintf('mysql:charset=utf8', $db['host'], $db['dbname'], $db['host'], $db['dbname']);
 
         // 3. エラー処理
         try {
-            $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, //DBから取得したデータを連想配列の形式で取得する
-            PDO::ATTR_EMULATE_PREPARES   => false, //SQLインジェクション対策
-        ));
+            $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
             $stmt = $pdo->prepare("INSERT INTO userData(name, password) VALUES (?, ?)");
 

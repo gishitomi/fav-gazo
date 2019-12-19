@@ -6,7 +6,18 @@ session_start();
 $db['host'] = getenv('hostname');  // DBサーバのURL
 $db['user'] = getenv('username');  // ユーザー名
 $db['pass'] = getenv('password');  // ユーザー名のパスワード
-$db['dbname'] = getenv('dbname');  // データベース名
+$db['dbname'] = "fav-gazo";  // データベース名
+// $db['dbname'] = getenv('dbname');  // データベース名
+
+// $db['host'] = "heroku_7c1d8e027c03bf7";  // DBサーバのURL
+// $db['user'] = "b1ba47a5f731ea";  // ユーザー名
+// $db['pass'] = "fc2ba8de";  // ユーザー名のパスワード
+// $db['dbname'] = "heroku_7c1d8e027c03bf7";  // データベース名
+
+$db['host'] = "localhost";  // DBサーバのURL
+$db['user'] = "root";  // ユーザー名
+$db['pass'] = "";  // ユーザー名のパスワード
+$db['dbname'] = "loginManagement";  // データベース名
 
 // エラーメッセージの初期化
 $errorMessage = "";
@@ -29,10 +40,7 @@ if (isset($_POST["login"])) {
 
         // 3. エラー処理
         try {
-            $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, //DBから取得したデータを連想配列の形式で取得する
-            PDO::ATTR_EMULATE_PREPARES   => false, //SQLインジェクション対策
-        ));
+            $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
             $stmt = $pdo->prepare('SELECT * FROM userData WHERE name = ?');
             $stmt->execute(array($userid));
