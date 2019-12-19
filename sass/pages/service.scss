@@ -11,5 +11,15 @@
         p {
             font-size: 15px;
         }
+        form {
+            margin: 50px 0;
+        }
+        #back {
+            padding: 5px 30px;
+            display: block;
+            margin: 0 auto;
+            background-color: black;
+            cursor: pointer;
+        }
     }
 }

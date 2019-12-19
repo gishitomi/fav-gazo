@@ -461,4 +461,14 @@ header .header-right a:hover {
 #service .textbox p {
   font-size: 15px; }
 
+#service .textbox form {
+  margin: 50px 0; }
+
+#service .textbox #back {
+  padding: 5px 30px;
+  display: block;
+  margin: 0 auto;
+  background-color: black;
+  cursor: pointer; }
+
 /*# sourceMappingURL=style.css.map */
