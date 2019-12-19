@@ -3,10 +3,10 @@ require 'password.php';   // password_verfy()はphp 5.5.0以降の関数のた�
 // セッション開始
 session_start();
 
-$db['host'] = "localhost";  // DBサーバのURL
-$db['user'] = "root";  // ユーザー名
-$db['pass'] = "";  // ユーザー名のパスワード
-$db['dbname'] = "loginManagement";  // データベース名
+$db['host'] = getenv('hostname');  // DBサーバのURL
+$db['user'] = getenv('username');  // ユーザー名
+$db['pass'] = getenv('password');  // ユーザー名のパスワード
+$db['dbname'] = getenv('dbname');  // データベース名
 
 // エラーメッセージの初期化
 $errorMessage = "";

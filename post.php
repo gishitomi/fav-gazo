@@ -10,10 +10,12 @@ if (!isset($_SESSION["NAME"])) {
 
 <?php
 try {
-    $user = "root";
-    $pass = "";
-    $pdo = new PDO("mysql:host=127.0.0.1;dbname=mediatest;charset=utf8", $user, $pass);
-
+    $user = getenv('username');
+    $pass = getenv('password');
+    $hostname = getenv('hostname');
+    $dbname = getenv('dbname');
+    // $pdo = new PDO("mysql:host=127.0.0.1;dbname=mediatest;charset=utf8", $user, $pass);
+    $pdo = new PDO($user, $pass, $hostname, $dbname);
     //ファイルアップロードがあったとき
     if (isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error']) && $_FILES["upfile"]["name"] !== "") {
         //エラーチェック
