@@ -88,7 +88,7 @@ try {
         <div class="container gazo3">
             <!-- ユーザーIDにHTMLタグが含まれても良いようにエスケープする -->
             <aside>
-                <p class="catch"><u><?php $_POST['userid'] ?></u>さん、さっそく何か<a href="./post.php">投稿</a>してみましょう！</p> <!-- ユーザー名をechoで表示 -->
+                <p class="catch"><u><?php echo htmlspecialchars($_SESSION["NAME"], ENT_QUOTES); ?></u>さん、さっそく何か<a href="./post.php">投稿</a>してみましょう！</p> <!-- ユーザー名をechoで表示 -->
                 <!-- <form action="Main.php" enctype="multipart/form-data" method="post">
                     <label>画像/動画アップロード</label>
                     <input type="file" name="upfile">
