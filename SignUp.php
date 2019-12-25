@@ -26,6 +26,17 @@ if (isset($_POST["signUp"])) {
         $errorMessage = 'パスワードが未入力です。';
     }
 
+    // //重複チェック
+    // //---------------------
+    // $stmt = $pdo->query("SELECT * FROM userData");
+    // while ($item = $stmt->fetch()) {
+    //     if ($item['name'] == $name) {
+    //         $error = '<p class="error">ご希望のメールアドレスは既に使用されています。</p>';
+    //     } else {
+    //         $name = $name;
+    //     }
+    // }
+
     if (!empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["password2"]) && $_POST["password"] === $_POST["password2"]) {
         // 入力したユーザIDとパスワードを格納
         $username = $_POST["username"];
@@ -41,10 +52,10 @@ if (isset($_POST["signUp"])) {
             $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
             $stmt = $pdo->prepare("INSERT INTO userData(name, password) VALUES (?, ?)");
-            
+
             $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT)));  // パスワードのハッシュ化を行う（今回は文字列のみなのでbindValue(変数の内容が変わらない)を使用せず、直接excuteに渡しても問題ない）
             $userid = $pdo->lastinsertid();  // 登録した(DB側でauto_incrementした)IDを$useridに入れる
-            
+
             $signUpMessage = '登録が完了しました。あなたのユーザーネームは ' . $username . ' です。パスワードは ' . $password . ' です。';  // ログイン時に使用するIDとパスワード
         } catch (PDOException $e) {
             $errorMessage = 'データベースエラー';
@@ -82,22 +93,22 @@ if (isset($_POST["signUp"])) {
                             <div>
                                 <font color="#0000ff"><?php echo htmlspecialchars($signUpMessage, ENT_QUOTES); ?></font>
                             </div>
-                            <label for="username">ユーザー名     </label><input type="text" id="username" name="username" placeholder="ユーザー名を入力" value="<?php if (!empty($_POST["username"])) {
+                            <label for="username">ユーザー名 </label><input type="text" id="username" name="username" placeholder="ユーザー名を入力" value="<?php if (!empty($_POST["username"])) {
                                                                                                                                                     echo htmlspecialchars($_POST["username"], ENT_QUOTES);
                                                                                                                                                 } ?>">
                             <br>
-                            <label for="password">パスワード     </label><input type="password" id="password" name="password" value="" placeholder="パスワードを入力">
+                            <label for="password">パスワード </label><input type="password" id="password" name="password" value="" placeholder="パスワードを入力">
                             <br>
                             <label class="password2" for="password2">パスワード(確認用)</label><input type="password" id="password2" name="password2" value="" placeholder="再度パスワードを入力">
                             <br><br><br><br>
                             <!-- <input type="submit" id="signUp" name="signUp" value="新規登録"> -->
-                            <button  id="signUp" name="signUp" type="submit" class="btn-shine">新規登録</button>
+                            <button id="signUp" name="signUp" type="submit" class="btn-shine">新規登録</button>
                         </fieldset>
                     </form>
                     <br>
                     <form action="Login.php">
                         <!-- <input type="submit" value="戻る"> -->
-                        <button  id="back" type="submit" class="btn-shine">戻る</button>
+                        <button id="back" type="submit" class="btn-shine">戻る</button>
                     </form>
                 </main>
             </div>
